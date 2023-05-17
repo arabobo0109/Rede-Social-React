@@ -32,10 +32,6 @@ interface AvatarFormElements extends HTMLFormControlsCollection{
   image: HTMLInputElement;
 }
 
-interface AvatarFormElement extends HTMLFormElement{
-  readonly elements: AvatarFormElements
-}
-
 export default function Profile() {
   const [profiles, setProfiles] = useState<User[]> ([]);
   const user = localStorage.getItem("user") as string;
@@ -120,6 +116,16 @@ export default function Profile() {
       }
     }
 
+    async function handleDeleteUser(){
+      if (window.confirm('Tem certeza que deseja encerrar sua conta?')) {
+        const response = await api.delete(`/api/v1/profiles/${userID}`, getAuthHeader());
+        alert("Usuário Deletado!")
+        console.log(response.data);
+        localStorage.clear();
+        navigate("/");
+      }
+    }
+
   useEffect(() => {
   const getProfile = async () => {
     try {
@@ -187,11 +193,12 @@ export default function Profile() {
                     <Text>Avatar</Text>
                     <Dropzone onFileUploaded ={setSelectedFile}/>
                 </label>
-                <button onClick= {handleAvatar} type ="button" className=" bg-slate-300 rounded font-semibold text-black text-sm w-32 h-7 transition-colors hover:bg-sky-400 focus:ring-2 mb-10">Alterar foto</button>
-
-                <button type ="submit" className="mt-4  bg-slate-700 rounded font-semibold text-black text-sm w-70 h-8 transition-colors hover:bg-slate-500 focus:ring-2 mb-10">Confirmar </button>
+                <button onClick= {handleAvatar} type ="button" className=" bg-slate-300 rounded font-semibold text-black text-sm w-32 h-7 transition-colors hover:bg-sky-400 focus:ring-2 mb-5">Alterar foto</button>
+                <div className="flex gap-4">
+                  <button type="submit" className="bg-slate-700 rounded font-semibold text-black text-sm w-20 grow h-8 transition-colors hover:bg-slate-500 focus:ring-2">Confirmar alterações</button>
+                  <button onClick= {handleDeleteUser} type ="button" className=" bg-red-900 rounded font-semibold text-black text-sm w-32 h-8  transition-colors hover:bg-red-500 focus:ring-2 mb-10">Deletar usuário</button>
+                </div>
             </form>
-            
             }
             </div>
             ))}

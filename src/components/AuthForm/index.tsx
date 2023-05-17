@@ -59,7 +59,7 @@ function AuthForm ({formTitle, submitFormButtonText, submitFormButtonAction, lin
                         <TextInput.Icon>
                              <User/>
                         </TextInput.Icon>
-                        <TextInput.Input id="email" type="text" placeholder="Digite seu login"/>
+                        <TextInput.Input id="email" type="text" placeholder="Digite seu e-mail"/>
                     </TextInput.Root>
                 </label>
 
