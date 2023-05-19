@@ -1,10 +1,12 @@
 import { UserCircle } from 'phosphor-react'
-import {  useState } from 'react'
+import {  useEffect, useState } from 'react'
 import Heading from '../Heading'
 import Text from '../Text'
 import getAuthHeader from '../../services/auth'
 import { Post } from '../../model/Post'
 import PostItem from '../PostItem'
+import api from '../../services/api'
+import { MiniAvatar } from '../Avatar'
 
 interface FeedProps {
   posts: Post[];
@@ -12,9 +14,24 @@ interface FeedProps {
 }
 
 export default function Feed( {posts, handleLike} : FeedProps) {
-  const user = localStorage.getItem("user")
- // const [posts, setPosts] = useState<Post[]> ( [] );
- 
+  const username = localStorage.getItem("user");
+  const userId = localStorage.getItem("profile");
+  const [userAvatar, setUserAvatar] = useState("");
+
+  useEffect(()=>{
+    const getProfiles = async () =>{
+        try {
+           const response = await api.get('/api/v1/profiles', getAuthHeader() );
+          const profiles = response.data.map((profile: any) => {
+            if(userId == profile.id) setUserAvatar(profile.avatar)
+          });
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    getProfiles()
+  }, [])
+
   return (
     <div className="basis-5/6 overflow-y-auto scroll-smooth">
       <Heading className="border-b border-slate-400 mt-4">
@@ -22,8 +39,12 @@ export default function Feed( {posts, handleLike} : FeedProps) {
           Página inicial
         </Text>
         <div className="flex flex-row items-center ml-5 my-2">
-          <UserCircle size={48} weight="light" className="text-slate-50" />
-          <Text className="font-extrabold ml-2">{user}</Text>
+        {userAvatar != "" || userAvatar.length > 0 ? (
+        <MiniAvatar src={userAvatar} />
+      ) : (
+        <UserCircle size={48} height="light" className="text-slate-50" />
+      )}
+          <Text className="font-extrabold ml-2">{username}</Text>
         </div>
       </Heading>
 

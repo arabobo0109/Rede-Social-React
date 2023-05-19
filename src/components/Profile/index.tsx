@@ -8,7 +8,7 @@ import Button from '../Button'
 import Heading from '../Heading'
 import Text from '../Text'
 import { TextInput } from '../TextInput'
-import Avatar from '../Avatar'
+import {Avatar} from '../Avatar'
 import Dropzone from '../Dropzone'
 
  interface Auth {

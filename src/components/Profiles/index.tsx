@@ -5,7 +5,7 @@ import getAuthHeader from '../../services/auth';
 import Button from '../Button';
 import Heading from '../Heading';
 import Text from '../Text'
-import Avatar from '../Avatar';
+import {Avatar} from '../Avatar';
 
 export default function Profiles() {
   const user = localStorage.getItem("user")

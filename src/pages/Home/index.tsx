@@ -18,7 +18,7 @@ export default function Home() {
       setPosts(response.data.reverse())
     }
     getPosts()
-  }, [posts]);
+  }, []);
  
 
   async function handleLike(postId: String) {

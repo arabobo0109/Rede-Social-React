@@ -5,6 +5,7 @@ import Button from '../Button'
 import api from '../../services/api';
 import Dropzone from '../Dropzone';
 import { Post } from '../../model/Post';
+import getAuthHeader from '../../services/auth';
 
 interface CreatePostDialogProps {
   postCreated : (post: Post) => void
@@ -33,16 +34,13 @@ export default function CreatePostDialog({postCreated}: CreatePostDialogProps) {
     data.append("title", form.elements.title.value);
     data.append("description", form.elements.description.value);
     if (selectedFile && profile) {
-      data.append("image", selectedFile);
+      data.append("photo", selectedFile);
       data.append("userId", profile);
     }
 
     try {
-      const response = await api.post("/posts", data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.post("/api/v1/posts", data, getAuthHeader()
+      );
       postCreated(response.data);
     } catch (error) {
       alert("Erro ao criar o post");
