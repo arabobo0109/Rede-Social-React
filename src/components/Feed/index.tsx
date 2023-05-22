@@ -49,7 +49,7 @@ export default function Feed( {posts, handleLike} : FeedProps) {
       </Heading>
 
       {posts && posts.map((post: Post) => (
-          <PostItem post={post} handleLike={handleLike} key={post._id} />
+          <PostItem post={post} handleLike={handleLike} key={post.id} />
       ))}
     </div>
   );

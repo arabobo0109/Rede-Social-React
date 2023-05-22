@@ -7,12 +7,12 @@ const profileLocalStorage = localStorage.getItem("profile") as string;
 
 
  async function likePost(post: Post, profile : string) : Promise<Post> {
-     await api.post(`/posts/${post._id}/like`, { userId: profileLocalStorage }, getAuthHeader());
+     await api.post(`api/v1/posts/${post.id}/like`, { userId: profileLocalStorage }, getAuthHeader());
      return like(post,profile)
  }
 
  async function unlikePost(post: Post, profile : string):  Promise<Post> {
-     await api.post(`/posts/${post._id}/like`, { userId: profileLocalStorage }, getAuthHeader());
+     await api.post(`api/v1/posts/${post.id}/like`, { userId: profileLocalStorage }, getAuthHeader());
      return unlike(post, profile)
  } 
 

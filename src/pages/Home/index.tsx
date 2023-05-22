@@ -9,7 +9,6 @@ import { likePost, unlikePost } from '../../services/posts';
 export default function Home() {
   const authHeader = getAuthHeader();
   const profile = localStorage.getItem("userId") as string;
-  
   const [posts, setPosts] = useState<Post[]> ([]);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function Home() {
  
 
   async function handleLike(postId: String) {
-     const [post, ...rest] =  posts.filter(post => post._id === postId)
+     const [post] =  posts.filter(post => post.id === postId)
      try {
       if (post && !post.likes.includes(profile)){
         const newPost = await likePost(post, profile);

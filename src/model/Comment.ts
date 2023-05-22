@@ -1,6 +1,6 @@
 export interface comments {
-    description: string;
-    _id ?: string;
+    content: string;
+    id : string;
     userId: string;
     profile: string;
   }

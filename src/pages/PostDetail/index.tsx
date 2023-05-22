@@ -13,28 +13,27 @@ import { Trash, UserCircle } from 'phosphor-react';
 import { comments } from '../../model/Comment';
 
 interface CommentFormElements extends HTMLFormControlsCollection {
-  description: HTMLInputElement;
-  name ?: HTMLInputElement;
-  password: HTMLInputElement;
+  content: HTMLInputElement;
 }
 
 interface CommentFormElement extends HTMLFormElement {
   readonly elements : CommentFormElements
 }
 
-
 export default function PostDetail() {
     const {postId} = useParams();
     const [postDetail, setPostDetail] = useState<Post>();
     const [comments, setComments] = useState<comments[]>([]);
+    const [commentUsername, setCommentUsername] = useState("");
+    const [commentUserAvatar, setCommentUserAvatar] = useState("");
     const profile = localStorage.getItem("profile") as string;
     const user = localStorage.getItem("user") as string;
-    console.log(comments)
-
+    
+   
     useEffect(() => {
       async function fetchPostDetail(){
         try {
-          const response = await api.get(`/posts/${postId}`,getAuthHeader())
+          const response = await api.get(`/api/v1/posts/${postId}`,getAuthHeader())
           const post = response.data;
           setPostDetail(post);
           setComments(post.comments)
@@ -44,7 +43,7 @@ export default function PostDetail() {
         }
       }
       fetchPostDetail(); 
-    },[comments])
+    },[])
 
     async function handleLike() {
       try {
@@ -64,13 +63,13 @@ export default function PostDetail() {
       event?.preventDefault();
       const form = event?.currentTarget;
       const data = {
-        description : form.elements.description.value,
+        content : form.elements.content.value,
         userId: profile,
         postId: postId
       }
         console.log(data);
       try {
-        const response =  await api.post(`posts/${postId}/comments`, data, getAuthHeader());
+        const response =  await api.post(`api/v1/${postId}/comments`, data, getAuthHeader());
         const comment ={ ...response.data };
         setComments([comment, ...comments]);
         setPostDetail((post) =>{
@@ -82,6 +81,13 @@ export default function PostDetail() {
       }
     }
   
+    async function handleDeleteComment(commentId: string){
+      if(window.confirm("Deseja deletar esse comentário?") == true){
+        await api.delete(`api/v1/${postId}/comments/${commentId}`,getAuthHeader());
+       // location.reload();
+       }
+    }
+    
   return (
     <div className='w-screen h-screen flex'>
         <Menu />   
@@ -91,7 +97,7 @@ export default function PostDetail() {
        <form  onSubmit={handleSubmit} className='mx-8 my-8 flex flex-col gap-4 '>
         <Text>Insira seu comentário </Text>
        <TextInput.Root>
-         <TextInput.Input id='description' placeholder='Comente este post...'/>
+         <TextInput.Input id='content' placeholder='Comente este post...'/>
        </TextInput.Root>
        <Button type='submit' className='mt-4'>
          Incluir comentário
@@ -103,18 +109,18 @@ export default function PostDetail() {
         <ul>
           
           {comments && comments.map((comment) => 
-          <li className='my-8 border rounded-lg'key={comment._id}>
+          <li className='my-8 border rounded-lg'key={comment.id}>
             <div className='flex flex-row items-center gap-2'>
             <UserCircle size={24} weight="light" className='text-slate-50'/>
             <Text size='lg'>{comment.profile}</Text>
             </div>
             <div className='flex flex-row justify-between'>
             <Text size='lg' className='pl-7'>
-              {comment.description}
+              {comment.content}
             </Text>
             
-            {comment.profile == user &&
-             <a onClick={ async ()=> { await api.delete(`/posts/${postId}/comments/${comment._id}`,getAuthHeader())}}>
+            {comment.userId == profile &&
+             <a onClick={ ()=> handleDeleteComment(comment.id)}>
                 <Trash className='pb-2 text-rose-900' size={40} />
              </a>
             }
