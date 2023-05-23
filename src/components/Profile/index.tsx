@@ -101,7 +101,12 @@ export default function Profile() {
     
         try {
           const response = await api.post("/api/v1/profiles/photo/upload", data, getAuthHeader());
-          alert("Avatar alterado!")
+          
+          if (response.data.includes("The specified bucket does not exist") ) {
+            alert("O upload falhou. Crie o bucket do localstack!");
+            console.log(response.data);
+          } else alert("Avatar alterado!");
+          
         } catch (error) {
           alert("Erro ao fazer o upload do avatar");
           console.log(error);
@@ -157,6 +162,11 @@ export default function Profile() {
 
               {editVisible == true && 
                 <form className="mt-10 flex flex-col gap-4  items-stretch w-full max-w-sm" onSubmit={handleSubmit} >
+                   <label htmlFor="photo" className="flex flex-col gap-2">
+                    <Text>Avatar</Text>
+                    <Dropzone onFileUploaded ={setSelectedFile}/>
+                </label>
+                <button onClick= {handleAvatar} type ="button" className=" bg-slate-300 rounded font-semibold text-black text-sm w-40 h-7 transition-colors hover:bg-sky-400 focus:ring-2 mb-5">Fazer upload da foto</button>
                 <label htmlFor="user" className="flex flex-col gap-2">
                     <Text>Username</Text>
                     <TextInput.Root>
@@ -189,11 +199,6 @@ export default function Profile() {
                         <TextInput.Input id="description" type="description" placeholder={profile.description}/>
                     </TextInput.Root>
                 </label>
-                <label htmlFor="photo" className="flex flex-col gap-2">
-                    <Text>Avatar</Text>
-                    <Dropzone onFileUploaded ={setSelectedFile}/>
-                </label>
-                <button onClick= {handleAvatar} type ="button" className=" bg-slate-300 rounded font-semibold text-black text-sm w-32 h-7 transition-colors hover:bg-sky-400 focus:ring-2 mb-5">Alterar foto</button>
                 <div className="flex gap-4">
                   <button type="submit" className="bg-slate-700 rounded font-semibold text-black text-sm w-20 grow h-8 transition-colors hover:bg-slate-500 focus:ring-2">Confirmar alterações</button>
                   <button onClick= {handleDeleteUser} type ="button" className=" bg-red-900 rounded font-semibold text-black text-sm w-32 h-8  transition-colors hover:bg-red-500 focus:ring-2 mb-10">Deletar usuário</button>

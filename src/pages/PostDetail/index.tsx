@@ -36,7 +36,7 @@ export default function PostDetail() {
           const response = await api.get(`/api/v1/posts/${postId}`,getAuthHeader())
           const post = response.data;
           setPostDetail(post);
-          setComments(post.comments)
+          setComments(post.comments.reverse())
              
         } catch (error) {
             console.error(error)
