@@ -25,7 +25,7 @@ function Login() {
 
     } catch (error: any) {
       console.error(error.response.data)     
-      alert(error.response.data)
+      if(error.response.status == 500) alert("Erro ao fazer o login. Tente novamente!")
     }
   }
 

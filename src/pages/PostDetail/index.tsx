@@ -44,7 +44,7 @@ export default function PostDetail() {
       
           const usersResponse = await api.get('/api/v1/profiles', {
             params: {
-              userIds: userIds.join(','), // Pass the userIds as a comma-separated string
+              userIds: userIds.join(','), 
             },
             ...getAuthHeader(),
           });
