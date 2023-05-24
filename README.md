@@ -4,6 +4,12 @@
  <img  src="https://user-images.githubusercontent.com/80289718/208725397-62059674-482d-4a24-87ed-a13a0d36f88a.png" width="100px;" alt="Gabriel Ribeiro"/>
 </p>
 
+## 🛣 Documentação 
+  Para acessar a documentação das outras partes da aplicação, confira abaixo :
+### __**<u>Ambiente de Back-end da Aplicação**</u>__ - [STATUS: Finalizado✅]  --> [Clique aqui](https://github.com/Gahbr/Rede-Social-Java-Spring)
+### **__<u>Ambiente de Mobile da Aplicação</u>__** - [STATUS: Finalizado✅]  --> [Clique Aqui](https://github.com/bc-fullstack-02/Gabriel-Ribeiro/tree/main/mobile) 
+ <br>
+
 ## 💻 **Sobre o projeto**
  Projeto final do Programa Trainee SysMap de Excelência Full Stack | 3ª edição e trata-se do módulo de front-end de uma rede social feita em React com Typescript
  
