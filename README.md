@@ -5,7 +5,7 @@
 </p>
 
 ## 💻 **Sobre o projeto**
- Projeto final do Programa Trainee SysMap de Excelência Full Stack | 3ª edição e trata-se do front-end de uma rede social feita em React com Typescript
+ Projeto final do Programa Trainee SysMap de Excelência Full Stack | 3ª edição e trata-se do módulo de front-end de uma rede social feita em React com Typescript
  
 ## 🧰 **Tecnologias utilizadas**
 
@@ -34,7 +34,7 @@
  Para poder rodar este projeto, você deverá ter os seguintes programas instalados:
  - Node.js
  - npm
- - Ambiente de [Back-end](https://github.com/Gahbr/Rede-Social-Java-Spring) da Rede social configurado e rodando 
+ - Ambiente de [Back-end](https://github.com/bc-fullstack-03/Gabriel-Ribeiro-Backend) da Rede social configurado e rodando 
   
   ### Insira os comandos abaixo no terminal
  ### ```npm i``` 
@@ -45,20 +45,28 @@
 
 ## 🎨**Design**
 
+### Login
 ![Bootcamp Sysmap - Parrot1](https://user-images.githubusercontent.com/80289718/207448820-ba841c1b-e835-4a19-8e34-2ecfed327e0d.png)
-![fe](https://user-images.githubusercontent.com/80289718/210162238-0cc6f2fe-1997-400b-8edd-c59958ecd110.png)
 
+### Feed
+![feed](https://github.com/Gahbr/Rede-Social-React/assets/80289718/c2798ce3-0bc5-4299-bfc8-9020c34b1622)
 
- ## Para acessar o Design no Figma, clique no link abaixo:
-### [Figma](https://www.figma.com/file/vepLgESqoFwshCzJ5lqPkn/bootcamp-2?node-id=0%3A1&t=4Xz04BTRIDXUrVZl-0)
+### Post
+![post_detail](https://github.com/Gahbr/Rede-Social-React/assets/80289718/f1eb7611-6708-4fad-8ec4-c5ef7610572a)
+
+### Página de amigos
+![friends_page](https://github.com/Gahbr/Rede-Social-React/assets/80289718/2a89311b-645a-472a-90a9-eeafee3a2c23)
+
+### Perfil
+![edit_profile](https://github.com/Gahbr/Rede-Social-React/assets/80289718/97b4c905-8ed1-483d-a9d2-0912455c8f81)
+
+### Para acessar o Design no Figma, clique no link: [Figma](https://www.figma.com/file/vepLgESqoFwshCzJ5lqPkn/bootcamp-2?node-id=0%3A1&t=4Xz04BTRIDXUrVZl-0)
 
 <br>
-<!--  
- ## ✅Checklist de implementações futuras 
-   - Automatizar a troca de policy do bucket gerado para um público
-   - socket.io com rabbitMQ -->
 
-
+## :construction: Status 
+ ### __**<u>Ambiente de Front-end da Aplicação**</u>__ - [STATUS: Finalizado✅]  
+ 
 ## 🦸 Autor
 
 <a href="https://github.com/Gahbr">
