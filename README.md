@@ -49,16 +49,16 @@
 ![Bootcamp Sysmap - Parrot1](https://user-images.githubusercontent.com/80289718/207448820-ba841c1b-e835-4a19-8e34-2ecfed327e0d.png)
 
 ### Feed
-![feed](https://github.com/Gahbr/Rede-Social-React/assets/80289718/c2798ce3-0bc5-4299-bfc8-9020c34b1622)
+![feed](https://github.com/Gahbr/Rede-Social-React/assets/80289718/6e8427c8-8fee-4a58-8973-7e008fb5ba86)
 
 ### Post
-![post_detail](https://github.com/Gahbr/Rede-Social-React/assets/80289718/f1eb7611-6708-4fad-8ec4-c5ef7610572a)
+![post_detail](https://github.com/Gahbr/Rede-Social-React/assets/80289718/400cd96a-a172-4967-aa89-b889e373e3fe)
 
 ### Página de amigos
-![friends_page](https://github.com/Gahbr/Rede-Social-React/assets/80289718/2a89311b-645a-472a-90a9-eeafee3a2c23)
+![friends_page](https://github.com/Gahbr/Rede-Social-React/assets/80289718/28ac2ef7-7505-48b8-b439-6b3753e18ca9)
 
 ### Perfil
-![edit_profile](https://github.com/Gahbr/Rede-Social-React/assets/80289718/97b4c905-8ed1-483d-a9d2-0912455c8f81)
+![edit_profile](https://github.com/Gahbr/Rede-Social-React/assets/80289718/c4ef366a-8688-40d1-b5bf-e6cf8c54b192)
 
 ### Para acessar o Design no Figma, clique no link: [Figma](https://www.figma.com/file/vepLgESqoFwshCzJ5lqPkn/bootcamp-2?node-id=0%3A1&t=4Xz04BTRIDXUrVZl-0)
 
